@@ -1,0 +1,11 @@
+apiVersion: platform.confluent.io/v1beta1
+kind: KRaftController
+metadata:
+  name: kraftcontroller
+  namespace: confluent
+spec:
+  dataVolumeCapacity: 10G
+  image:
+    application: {{print "docker.io/confluentinc/cp-server:" .Values.cpServer.version}}
+    init: {{print "confluentinc/confluent-init-container:" .Values.confluentInitContainer.version}}
+  replicas: 3

@@ -1,0 +1,12 @@
+apiVersion: platform.confluent.io/v1beta1
+kind: KafkaRestClass
+metadata:
+  name: default
+  namespace: confluent
+spec:
+  kafkaRest:
+    endpoint: http://kafka.confluent.svc.cluster.local:8090
+    authentication:
+      type: bearer
+      bearer:
+        secretRef: mds-client
